@@ -23,7 +23,7 @@ public class UsuarioController {
 
     @PutMapping("v1/usuario/editar")
     public void editarUsuario(@RequestBody Usuario usuario){
-        usuarioService.editPersona(usuario);
+        usuarioService.editUsuario(usuario);
     }
 
 }

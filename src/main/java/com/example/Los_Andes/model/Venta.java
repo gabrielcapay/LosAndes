@@ -23,7 +23,7 @@ public class Venta {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Usuario vendedor_venta;
+    private Usuario vendedor;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente" )

@@ -21,7 +21,7 @@ public class Usuario {
     private int telefono_usuario;
     private boolean status_usuario;
 
-    @OneToMany(mappedBy = "vendedor_venta")
+    @OneToMany(mappedBy = "vendedor")
     private List<Venta> ventas;
 
 }

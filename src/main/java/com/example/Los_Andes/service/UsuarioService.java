@@ -34,7 +34,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void editPersona(Usuario usuario) {
+    public void editUsuario(Usuario usuario) {
         this.saveUsuario(usuario);
     }
 }
