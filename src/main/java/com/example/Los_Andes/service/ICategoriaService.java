@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ICategoriaService {
     public List<Categoria> getCategoria();
-    public Cliente findCategoria(Long id);
+    public Categoria findCategoria(Long id);
     public void saveCategoria(Categoria nuevaCategoria);
     public void deleteCategoria(Long id);
     public void editCategoria(Categoria categoriaEdit);
