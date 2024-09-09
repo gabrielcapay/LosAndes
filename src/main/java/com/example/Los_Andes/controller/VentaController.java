@@ -1,7 +1,6 @@
 package com.example.Los_Andes.controller;
 
-import com.example.Los_Andes.dto.VentaDTO;
-import com.example.Los_Andes.model.Usuario;
+
 import com.example.Los_Andes.model.Venta;
 import com.example.Los_Andes.service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,21 +24,10 @@ public class VentaController {
         return ventaService.getVentas();
     }
 
-    @PostMapping("v1/venta/registrarr")
-    public void registrarVenta(@RequestBody Venta nuevaVenta){
-        ventaService.saveVenta(nuevaVenta);
-    }
-
     @PostMapping("v1/venta/registrar")
-    public void registrarVenta(@RequestBody VentaDTO nuevaVenta){
+    public void registrarVenta(@RequestBody Venta nuevaVenta){
         ventaService.registrarVenta(nuevaVenta);
     }
-
-    @PutMapping("v1/venta/editar")
-    public void editarVenta(@RequestBody Venta venta){ //implementar
-    }
-
-
 
 
 

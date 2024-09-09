@@ -10,8 +10,9 @@ public interface IVentaService {
 
     public List<Venta> getVentas();
     public Venta findVentaByID(Long id);
-    public void saveVenta(Venta nuevaVenta);
-    public Venta registrarVenta(VentaDTO ventaDTO);
+
+    public void registrarVenta(Venta nuevaVenta);
+
     public void deleteVenta(Long id);
 
 }
