@@ -5,6 +5,8 @@ import com.example.Los_Andes.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UsuarioController {
 
@@ -14,6 +16,10 @@ public class UsuarioController {
     @GetMapping("v1/usuario/{id}")
     public Usuario buscarUsuario(@PathVariable Long id){
         return usuarioService.findUsuario(id);
+    }
+
+    @GetMapping("v1/usuario/")
+    public List<Usuario> buscarUsuario() {return usuarioService.getUsuarios();
     }
 
     @PostMapping("v1/usuario/agregar")

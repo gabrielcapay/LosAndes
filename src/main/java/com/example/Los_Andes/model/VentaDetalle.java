@@ -15,7 +15,7 @@ public class VentaDetalle {
     private float subtotal_ventaDetalle;
 
     @ManyToOne
-    @JoinColumn(name = "id_venta " )
+    @JoinColumn(name = "id_venta")
     private Venta venta;
     @OneToOne
     @JoinColumn(name = "id_producto" , referencedColumnName = "id_producto")

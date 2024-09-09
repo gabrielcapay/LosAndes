@@ -18,14 +18,14 @@ public class Venta {
     private float importeTotal_venta;
     private LocalDateTime fecha_venta;
 
-    @OneToMany(mappedBy = "venta")
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VentaDetalle> detalles_venta;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name ="id_usuario")
     private Usuario vendedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente" )
+    @JoinColumn(name ="id_cliente" )
     private Cliente cliente_venta;
 }
