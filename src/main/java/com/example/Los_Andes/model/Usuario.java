@@ -1,6 +1,7 @@
 package com.example.Los_Andes.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Usuario {
     private boolean status_usuario;
 
     @OneToMany(mappedBy = "vendedor")
+
     private List<Venta> ventas;
 
 }

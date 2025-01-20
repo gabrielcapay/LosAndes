@@ -2,6 +2,7 @@ package com.example.Los_Andes.service;
 
 import com.example.Los_Andes.model.Usuario;
 import com.example.Los_Andes.repository.UsuarioRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,10 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public void editUsuario(Usuario usuario) {
+
+        if (usuario.getId_usuario() == null || usuarioRepository.existsById(usuario.getId_usuario())){
+            throw new EntityNotFoundException("El producto con el ID " + usuario.getId_usuario() + " no existe");
+        }
         this.saveUsuario(usuario);
     }
 }

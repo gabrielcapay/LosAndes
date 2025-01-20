@@ -9,4 +9,6 @@ public interface IVentaDetalleService {
 
     public void saveVentaDetalle(VentaDetalle nuevoDetalle);
 
+
+
 }

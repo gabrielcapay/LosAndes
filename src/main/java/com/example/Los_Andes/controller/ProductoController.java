@@ -1,10 +1,12 @@
 package com.example.Los_Andes.controller;
 
+import com.example.Los_Andes.dto.ProductoDTO;
 import com.example.Los_Andes.model.Producto;
-import com.example.Los_Andes.model.Usuario;
-import com.example.Los_Andes.service.ICategoriaService;
 import com.example.Los_Andes.service.IProductoService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,17 +20,29 @@ public class ProductoController {
         return productoService.findProducto(id);
     }
 
-    @GetMapping("v1/producto/")
-    public List<Producto> buscarUsuario() {return productoService.geteProductos();
+    @GetMapping("v1/producto/detalles")
+    public List<Producto> buscarProductos() {return productoService.geteProductos();
     }
 
-    @PostMapping("v1/producto/agregar")
+    @GetMapping("v1/producto")
+    public List<ProductoDTO> getProductos() {
+
+        return productoService.getProductos();
+    }
+
+    @PostMapping("v1/producto")
     public void agregarProducto(@RequestBody Producto nuevoProducto){
         productoService.saveProducto(nuevoProducto);
     }
 
-    @PutMapping("v1/producto/editar")
-    public void editarProducto(@RequestBody Producto producto){
-        productoService.editProducto(producto);
+    @PutMapping("v1/producto")
+    public ResponseEntity<String> editarProducto(@RequestBody Producto producto){
+        try {
+            productoService.editProducto(producto);
+            return new ResponseEntity<>("Los datos fue actualizados correctamente", HttpStatus.OK);
+        }
+        catch (EntityNotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 }

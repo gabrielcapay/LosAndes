@@ -4,6 +4,7 @@ package com.example.Los_Andes.service;
 
 import com.example.Los_Andes.model.Cliente;
 import com.example.Los_Andes.repository.ClienteRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,10 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void editCliente(Cliente usuario) {
-        clienteRepository.save(usuario);
+
+        if (usuario.getId_cliente() == null || clienteRepository.existsById(usuario.getId_cliente())){
+            throw new EntityNotFoundException("El cliente con el ID " + usuario.getId_cliente() + " no existe");
+        }
+        this.saveCliente(usuario);
     }
 }

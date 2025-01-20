@@ -14,7 +14,7 @@ public class Producto {
     private double precio_producto;
     private int stock_producto;
 
-    @OneToOne
-    @JoinColumn(name = "id_categoria" , referencedColumnName = "id_categoria")
+    @ManyToOne
+    @JoinColumn(name = "id_ventaDetalle")
     private Categoria categoria_producto;
 }
