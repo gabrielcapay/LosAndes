@@ -8,10 +8,12 @@ import java.util.List;
 
 public interface IProductoService {
     public List<Producto> geteProductos();
+    public List<ProductoDTO> getProductos(String orden);
     public Producto findProducto(Long id);
     public void saveProducto(Producto nuevoProducto);
     public void deleteProducto(Long id);
     public void editProducto(Producto productoEditado);
 
-    public List<ProductoDTO> getProductos();
+
+
 }

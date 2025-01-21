@@ -21,8 +21,18 @@ public class ProductoService implements IProductoService {
         return productoRepository.findAll();
     }
 
-    public List<ProductoDTO> getProductos() {
-        List<Producto> listaProductos = productoRepository.findAll();
+    public List<ProductoDTO> getProductos(String orden) {
+        List<Producto> listaProductos = new ArrayList<>();
+
+        if (orden == null){
+            listaProductos = productoRepository.findAll();
+        } else if (orden.equals("desc")) {
+            listaProductos = productoRepository.ordenarPrecio(orden);
+        } else if (orden.equals("asc")) {
+            listaProductos = productoRepository.ordenarPrecio(orden);
+        }else{
+            throw new EntityNotFoundException("Solo se acepta ordenar los precios de forma 'desc' o 'asc'");
+        }
 
         List<ProductoDTO> listaProductosResponse = new ArrayList<>() ;
 
@@ -38,6 +48,7 @@ public class ProductoService implements IProductoService {
 
         return listaProductosResponse;
     }
+
 
     @Override
     public Producto findProducto(Long id) {
@@ -60,5 +71,6 @@ public class ProductoService implements IProductoService {
         }
         productoRepository.save(productoEditado);
     }
+
 
 }
