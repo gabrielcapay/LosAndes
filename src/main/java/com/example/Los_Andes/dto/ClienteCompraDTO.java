@@ -10,10 +10,10 @@ import java.util.List;
 public class ClienteCompraDTO {
     private Long id_cliente;
 
-    private String nombre_cliente;
-    private String apelido_cliente;
-    private String correo_cliente;
-    private long telefono_cliente;
+    private String nombre;
+    private String apelido;
+    private String correo;
+    private long telefono;
 
-    private List<Venta> compras_cliente;
+    private List<VentaDTO> compras;
 }

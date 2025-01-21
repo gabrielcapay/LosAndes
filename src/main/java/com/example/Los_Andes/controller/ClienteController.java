@@ -1,5 +1,6 @@
 package com.example.Los_Andes.controller;
 
+import com.example.Los_Andes.dto.ClienteDTO;
 import com.example.Los_Andes.model.Cliente;
 
 import com.example.Los_Andes.service.IClienteService;
@@ -19,12 +20,12 @@ public class ClienteController {
 
 
     @GetMapping("v1/cliente/{id}")
-    public Cliente buscarCliente(@PathVariable Long id){
+    public ClienteDTO buscarCliente(@PathVariable Long id){
         return clienteService.findCliente(id);
     }
 
     @GetMapping("v1/cliente")
-    public List<Cliente> buscarCliente() {return clienteService.getClientes();
+    public List<ClienteDTO> buscarCliente() {return clienteService.getClientes();
     }
 
     @PostMapping("v1/cliente")
