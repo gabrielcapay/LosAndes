@@ -11,9 +11,9 @@ public class ClienteCompraDTO {
     private Long id_cliente;
 
     private String nombre;
-    private String apelido;
+    private String apellido;
     private String correo;
     private long telefono;
 
-    private List<VentaDTO> compras;
+    private List<CompraDTO> compras;
 }

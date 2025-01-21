@@ -1,5 +1,6 @@
 package com.example.Los_Andes.controller;
 
+import com.example.Los_Andes.dto.ClienteCompraDTO;
 import com.example.Los_Andes.dto.ClienteDTO;
 import com.example.Los_Andes.model.Cliente;
 
@@ -22,6 +23,11 @@ public class ClienteController {
     @GetMapping("v1/cliente/{id}")
     public ClienteDTO buscarCliente(@PathVariable Long id){
         return clienteService.findCliente(id);
+    }
+
+    @GetMapping("v1/cliente/{id}/compras")
+    public ClienteCompraDTO buscarComprasCliente(@PathVariable Long id){
+        return clienteService.findClienteCompra(id);
     }
 
     @GetMapping("v1/cliente")
