@@ -35,8 +35,14 @@ public class ClienteController {
     }
 
     @PostMapping("v1/cliente")
-    public void nuevoCliente(@RequestBody Cliente nuevoCliente){
-        clienteService.saveCliente(nuevoCliente);
+    public ResponseEntity<String> nuevoCliente(@RequestBody Cliente nuevoCliente){
+        try {
+            clienteService.saveCliente(nuevoCliente);
+            return new ResponseEntity<>("El cliente se ha guardo correctamente", HttpStatus.OK);
+        }
+        catch (EntityNotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping("v1/cliente")

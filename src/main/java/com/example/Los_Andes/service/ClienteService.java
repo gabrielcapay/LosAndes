@@ -93,6 +93,12 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void saveCliente(Cliente nuevoUsuario) {
+        if (nuevoUsuario.getId_cliente() == null || clienteRepository.existsById(nuevoUsuario.getId_cliente())){
+            throw new EntityNotFoundException("El cliente con el id " + nuevoUsuario.getId_cliente() + " ya existe");
+        }
+        this.saveCliente(nuevoUsuario);
+
+
         clienteRepository.save(nuevoUsuario);
     }
 
