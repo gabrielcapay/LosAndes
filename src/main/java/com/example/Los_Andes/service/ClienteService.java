@@ -78,9 +78,9 @@ public class ClienteService implements IClienteService{
             List<VentaDetalleDTO> detalles = new ArrayList<>();
             for (VentaDetalle ventaDetalles: venta.getDetalles_venta()) {
                 VentaDetalleDTO detalle = new VentaDetalleDTO();
-                detalle.setSubtotal_ventaDetalle(ventaDetalles.getSubtotal_ventaDetalle());
-                detalle.setCantidad_ventaDetalle(ventaDetalles.getCantidad_ventaDetalle());
-                detalle.setProducto_ventaDetalle(ventaDetalles.getProducto_ventaDetalle());
+                detalle.setSubtotal(ventaDetalles.getSubtotal_ventaDetalle());
+                detalle.setCantidad(ventaDetalles.getCantidad_ventaDetalle());
+                detalle.setProducto(ventaDetalles.getProducto_ventaDetalle());
                 detalles.add(detalle);
             }
             compraResponse.setDetalles(detalles);

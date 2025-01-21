@@ -34,9 +34,9 @@ public class VentaService implements IVentaService{
             List<VentaDetalleDTO> detalles = new ArrayList<>();
             for (VentaDetalle ventaDetalles: venta.getDetalles_venta()) {
                 VentaDetalleDTO detalle = new VentaDetalleDTO();
-                detalle.setSubtotal_ventaDetalle(ventaDetalles.getSubtotal_ventaDetalle());
-                detalle.setCantidad_ventaDetalle(ventaDetalles.getCantidad_ventaDetalle());
-                detalle.setProducto_ventaDetalle(ventaDetalles.getProducto_ventaDetalle());
+                detalle.setSubtotal(ventaDetalles.getSubtotal_ventaDetalle());
+                detalle.setCantidad(ventaDetalles.getCantidad_ventaDetalle());
+                detalle.setProducto(ventaDetalles.getProducto_ventaDetalle());
                 detalles.add(detalle);
             }
             ventaResponse.setDetalles(detalles);
@@ -57,9 +57,9 @@ public class VentaService implements IVentaService{
 
         for (VentaDetalle ventaDetalle: venta.getDetalles_venta()) {
             VentaDetalleDTO ventaDetalleDTO = new VentaDetalleDTO();
-            ventaDetalleDTO.setSubtotal_ventaDetalle(ventaDetalle.getSubtotal_ventaDetalle());
-            ventaDetalleDTO.setCantidad_ventaDetalle(ventaDetalle.getCantidad_ventaDetalle());
-            ventaDetalleDTO.setProducto_ventaDetalle(ventaDetalle.getProducto_ventaDetalle());
+            ventaDetalleDTO.setSubtotal(ventaDetalle.getSubtotal_ventaDetalle());
+            ventaDetalleDTO.setCantidad(ventaDetalle.getCantidad_ventaDetalle());
+            ventaDetalleDTO.setProducto(ventaDetalle.getProducto_ventaDetalle());
 
             detalles.add(ventaDetalleDTO);
         }

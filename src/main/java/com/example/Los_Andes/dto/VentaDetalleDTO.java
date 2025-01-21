@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class VentaDetalleDTO {
 
-    private int cantidad_ventaDetalle;
-    private float subtotal_ventaDetalle;
-    private Producto producto_ventaDetalle;
+    private int cantidad;
+    private float subtotal;
+    private Producto producto;
 }
