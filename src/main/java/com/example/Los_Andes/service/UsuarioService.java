@@ -6,6 +6,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,6 +27,8 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public void saveUsuario(Vendedor nuevoVendedor) {
+        nuevoVendedor.setCreatedAt(LocalDateTime.now());
+        nuevoVendedor.setUpdatedAt(LocalDateTime.now());
         usuarioRepository.save(nuevoVendedor);
     }
 
@@ -35,11 +38,12 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void editUsuario(Vendedor vendedor) {
+    public void editUsuario(Vendedor vendegitdor) {
 
         if (vendedor.getId_vendedor() == null || usuarioRepository.existsById(vendedor.getId_vendedor())){
             throw new EntityNotFoundException("El producto con el ID " + vendedor.getId_vendedor() + " no existe");
         }
+        vendedor.setUpdatedAt(LocalDateTime.now());
         this.saveUsuario(vendedor);
     }
 }

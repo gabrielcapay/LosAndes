@@ -6,6 +6,9 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -25,6 +28,12 @@ public class CategoriaService implements ICategoriaService {
 
     @Override
     public void saveCategoria(Categoria nuevaCategoria) {
+
+        Categoria categoriaSave = nuevaCategoria;
+
+        categoriaSave.setCreatedAt(LocalDateTime.now());
+        categoriaSave.setUpdatedAt(LocalDateTime.now());
+
         categoriaRepository.save(nuevaCategoria);
     }
 
@@ -39,6 +48,10 @@ public class CategoriaService implements ICategoriaService {
         if (categoriaEdit.getId_categoria() == null || !categoriaRepository.existsById(categoriaEdit.getId_categoria())) {
             throw new EntityNotFoundException("La categoría con el ID " + categoriaEdit.getId_categoria() + " no existe");
         }
-        this.saveCategoria(categoriaEdit);
+
+        Categoria categoriaUpdate = categoriaEdit;
+        categoriaUpdate.setUpdatedAt(LocalDateTime.now());
+
+        this.saveCategoria(categoriaUpdate);
     }
 }

@@ -12,6 +12,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +75,7 @@ public class ClienteService implements IClienteService{
         for (Venta venta: clienteRepo.getCompras_cliente()) {
             CompraDTO compraResponse = new CompraDTO();
             compraResponse.setImporteTotal_venta(venta.getImporteTotal_venta());
-            compraResponse.setFecha_venta(venta.getFecha_venta());
+            compraResponse.setFecha_venta(LocalDateTime.now());
             compraResponse.setId_venta(venta.getId_venta());
             List<VentaDetalleDTO> detalles = new ArrayList<>();
             for (VentaDetalle ventaDetalles: venta.getDetalles_venta()) {

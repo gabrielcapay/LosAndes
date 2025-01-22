@@ -8,6 +8,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,8 @@ public class ProductoService implements IProductoService {
 
     @Override
     public void saveProducto(Producto nuevoProducto) {
+        nuevoProducto.setCreatedAt(LocalDateTime.now());
+        nuevoProducto.setUpdatedAt(LocalDateTime.now());
         productoRepository.save(nuevoProducto);
     }
 
@@ -69,6 +72,7 @@ public class ProductoService implements IProductoService {
         if (productoEditado.getId_producto() == null || productoRepository.existsById(productoEditado.getId_producto())){
             throw new EntityNotFoundException("El producto con el ID " + productoEditado.getId_producto() + " no existe");
         }
+        productoEditado.setUpdatedAt(LocalDateTime.now());
         productoRepository.save(productoEditado);
     }
 

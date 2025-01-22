@@ -10,6 +10,8 @@ import com.example.Los_Andes.repository.VentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class VentaService implements IVentaService{
         for (Venta venta: ventasRealizadas) {
             VentaDTO ventaResponse = new VentaDTO();
             ventaResponse.setImporteTotal_venta(venta.getImporteTotal_venta());
-            ventaResponse.setFecha_venta(venta.getFecha_venta());
+            ventaResponse.setFecha_venta(LocalDateTime.now());
             ventaResponse.setId_venta(venta.getId_venta());
             List<VentaDetalleDTO> detalles = new ArrayList<>();
             for (VentaDetalle ventaDetalles: venta.getDetalles_venta()) {
@@ -76,7 +78,7 @@ public class VentaService implements IVentaService{
             }
         }
 
-
+        nuevaVenta.setFecha_venta(LocalDateTime.now());
         ventaRepository.save(nuevaVenta);
     }
 
