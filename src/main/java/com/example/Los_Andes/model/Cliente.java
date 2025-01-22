@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,9 @@ public class Cliente {
     private String apelido_cliente;
     private String correo_cliente;
     private long telefono_cliente;
+
+    private Date createdAt;
+    private Date updatedAt;
 
     @OneToMany(mappedBy = "cliente_venta")
 

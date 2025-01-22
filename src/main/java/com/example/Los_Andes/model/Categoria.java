@@ -6,12 +6,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_categoria;
-
     private String nombre_categoria;
+    private Date createdAt;
+    private Date updatedAt;
 }

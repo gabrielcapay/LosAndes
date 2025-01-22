@@ -1,8 +1,5 @@
 package com.example.Los_Andes.model;
 
-import ch.qos.logback.core.net.server.Client;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -26,7 +23,7 @@ public class Venta {
 
     @ManyToOne
     @JoinColumn(name ="id_usuario")
-    private Usuario vendedor;
+    private Vendedor vendedor;
 
     @ManyToOne
     @JoinColumn(name ="id_cliente" )

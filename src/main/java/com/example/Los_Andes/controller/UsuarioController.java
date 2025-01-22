@@ -1,6 +1,6 @@
 package com.example.Los_Andes.controller;
 
-import com.example.Los_Andes.model.Usuario;
+import com.example.Los_Andes.model.Vendedor;
 import com.example.Los_Andes.service.IUsuarioService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +17,25 @@ public class UsuarioController {
     private IUsuarioService usuarioService;
 
     @GetMapping("v1/usuario/{id}")
-    public Usuario buscarUsuario(@PathVariable Long id){
+    public Vendedor buscarUsuario(@PathVariable Long id){
         return usuarioService.findUsuario(id);
     }
 
     @GetMapping("v1/usuario")
-    public List<Usuario> buscarUsuario() {return usuarioService.getUsuarios();
+    public List<Vendedor> buscarUsuario() {return usuarioService.getUsuarios();
     }
 
     @PostMapping("v1/usuario")
-    public void nuevoUsuario(@RequestBody Usuario nuevoUsuario){
-        usuarioService.saveUsuario(nuevoUsuario);
+    public void nuevoUsuario(@RequestBody Vendedor nuevoVendedor){
+        usuarioService.saveUsuario(nuevoVendedor);
     }
 
     @PutMapping("v1/usuario")
-    public ResponseEntity<String> editarUsuario(@RequestBody Usuario usuario){
-        usuarioService.editUsuario(usuario);
+    public ResponseEntity<String> editarUsuario(@RequestBody Vendedor vendedor){
+        usuarioService.editUsuario(vendedor);
 
         try {
-            usuarioService.editUsuario(usuario);
+            usuarioService.editUsuario(vendedor);
             return new ResponseEntity<>("Los datos fue actualizados correctamente", HttpStatus.OK);
         }
         catch (EntityNotFoundException e){

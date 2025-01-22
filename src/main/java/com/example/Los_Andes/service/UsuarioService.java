@@ -1,6 +1,6 @@
 package com.example.Los_Andes.service;
 
-import com.example.Los_Andes.model.Usuario;
+import com.example.Los_Andes.model.Vendedor;
 import com.example.Los_Andes.repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +15,18 @@ public class UsuarioService implements IUsuarioService {
 
 
     @Override
-    public List<Usuario> getUsuarios() {
+    public List<Vendedor> getUsuarios() {
         return usuarioRepository.findAll();
     }
 
     @Override
-    public Usuario findUsuario(Long id) {
+    public Vendedor findUsuario(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void saveUsuario(Usuario nuevoUsuario) {
-        usuarioRepository.save(nuevoUsuario);
+    public void saveUsuario(Vendedor nuevoVendedor) {
+        usuarioRepository.save(nuevoVendedor);
     }
 
     @Override
@@ -35,11 +35,11 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void editUsuario(Usuario usuario) {
+    public void editUsuario(Vendedor vendedor) {
 
-        if (usuario.getId_usuario() == null || usuarioRepository.existsById(usuario.getId_usuario())){
-            throw new EntityNotFoundException("El producto con el ID " + usuario.getId_usuario() + " no existe");
+        if (vendedor.getId_vendedor() == null || usuarioRepository.existsById(vendedor.getId_vendedor())){
+            throw new EntityNotFoundException("El producto con el ID " + vendedor.getId_vendedor() + " no existe");
         }
-        this.saveUsuario(usuario);
+        this.saveUsuario(vendedor);
     }
 }
