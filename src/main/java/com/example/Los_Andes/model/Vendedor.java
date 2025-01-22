@@ -4,6 +4,8 @@ package com.example.Los_Andes.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +24,8 @@ public class Vendedor {
     private int telefono_vendedor;
     private boolean status_vendedor;
 
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "vendedor")
 

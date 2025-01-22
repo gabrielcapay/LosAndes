@@ -3,6 +3,8 @@ package com.example.Los_Andes.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -15,8 +17,8 @@ public class Producto {
     private String nombre_producto;
     private double precio_producto;
     private int stock_producto;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "id_ventaDetalle")
