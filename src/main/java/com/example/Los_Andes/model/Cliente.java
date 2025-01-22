@@ -18,7 +18,7 @@ public class Cliente {
     private String apelido_cliente;
     private String correo_cliente;
     private long telefono_cliente;
-
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

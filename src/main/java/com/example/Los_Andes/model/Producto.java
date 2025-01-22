@@ -17,6 +17,7 @@ public class Producto {
     private String nombre_producto;
     private double precio_producto;
     private int stock_producto;
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

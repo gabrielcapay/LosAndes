@@ -23,7 +23,7 @@ public class Vendedor {
     private String contrasena_vendedor;
     private int telefono_vendedor;
     private boolean status_vendedor;
-
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

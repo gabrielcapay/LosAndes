@@ -16,7 +16,7 @@ public class Venta {
 
     private Long id_venta;
     private float importeTotal_venta;
-    @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime fecha_venta;
 
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)

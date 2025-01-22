@@ -1,9 +1,6 @@
 package com.example.Los_Andes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,6 +14,8 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_categoria;
     private String nombre_categoria;
+
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
