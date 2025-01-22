@@ -40,10 +40,10 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public void editUsuario(Vendedor vendegitdor) {
 
-        if (vendedor.getId_vendedor() == null || usuarioRepository.existsById(vendedor.getId_vendedor())){
-            throw new EntityNotFoundException("El producto con el ID " + vendedor.getId_vendedor() + " no existe");
+        if (vendegitdor.getId_vendedor() == null || usuarioRepository.existsById(vendegitdor.getId_vendedor())){
+            throw new EntityNotFoundException("El producto con el ID " + vendegitdor.getId_vendedor() + " no existe");
         }
-        vendedor.setUpdatedAt(LocalDateTime.now());
-        this.saveUsuario(vendedor);
+        vendegitdor.setUpdatedAt(LocalDateTime.now());
+        this.saveUsuario(vendegitdor);
     }
 }
