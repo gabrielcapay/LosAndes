@@ -4,7 +4,7 @@ import com.example.Los_Andes.model.Vendedor;
 
 import java.util.List;
 
-public interface IUsuarioService {
+public interface IVendedorService {
 
     public List<Vendedor> getUsuarios();
     public Vendedor findUsuario(Long id);

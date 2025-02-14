@@ -5,6 +5,7 @@ import com.example.Los_Andes.dto.VentaDetalleDTO;
 import com.example.Los_Andes.model.Producto;
 import com.example.Los_Andes.model.Venta;
 import com.example.Los_Andes.model.VentaDetalle;
+import com.example.Los_Andes.repository.ClienteRepository;
 import com.example.Los_Andes.repository.ProductoRepository;
 import com.example.Los_Andes.repository.VentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class VentaService implements IVentaService{
 
     @Autowired
     private VentaRepository ventaRepository;
+
+
 
     @Override
     public List<VentaDTO> getVentas() {

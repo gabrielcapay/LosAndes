@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -25,4 +24,8 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente_venta")
 
     private List<Venta> compras_cliente;
+
+
+    public static class Usuario {
+    }
 }
