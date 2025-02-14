@@ -3,6 +3,7 @@ package com.example.Los_Andes.service;
 import com.example.Los_Andes.model.Usuario;
 import com.example.Los_Andes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,5 +38,10 @@ public class UsuarioService implements IUserService{
     @Override
     public void update(Usuario userSec) {
         this.save(userSec);
+    }
+
+    @Override
+    public String encriptarContraseña(String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 }

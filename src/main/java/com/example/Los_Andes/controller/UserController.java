@@ -4,6 +4,7 @@ import com.example.Los_Andes.model.Role;
 import com.example.Los_Andes.model.Usuario;
 import com.example.Los_Andes.service.IRoleService;
 import com.example.Los_Andes.service.IUserService;
+import com.fasterxml.jackson.datatype.jsr310.ser.YearSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,8 @@ public class UserController {
 
         Set<Role> roleList = new HashSet<Role>();
         Role readRole;
+
+        userSec.setPassword(userService.encriptarContraseña(userSec.getPassword()));
 
         // Recuperar la Permission/s por su ID
         for (Role role : userSec.getRolesList()){

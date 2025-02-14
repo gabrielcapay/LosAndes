@@ -11,4 +11,6 @@ public interface IUserService {
     public Usuario save(Usuario userSec);
     public void deleteById(Long id);
     public void update(Usuario userSec);
+
+    public String encriptarContraseña(String password);
 }
